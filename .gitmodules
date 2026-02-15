@@ -3,10 +3,10 @@
 	url = https://github.com/frida/frida-gum.git
 [submodule "frida-core"]
 	path = subprojects/miru-core
-	url = https://github.com/frida/frida-core.git
+	url = https://github.com/DevTeam-sc/miru-core-lib.git
 [submodule "frida-python"]
 	path = subprojects/miru-python
-	url = https://github.com/frida/frida-python.git
+	url = https://github.com/DevTeam-sc/miru-core.git
 [submodule "frida-node"]
 	path = subprojects/miru-node
 	url = https://github.com/frida/frida-node.git
@@ -21,7 +21,7 @@
 	url = https://github.com/frida/frida-qml.git
 [submodule "frida-tools"]
 	path = subprojects/miru-tools
-	url = https://github.com/frida/frida-tools.git
+	url = https://github.com/DevTeam-sc/miru-tools.git
 [submodule "frida-go"]
 	path = subprojects/miru-go
 	url = https://github.com/frida/frida-go
