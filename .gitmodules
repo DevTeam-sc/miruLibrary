@@ -1,29 +1,29 @@
 [submodule "frida-gum"]
-	path = subprojects/frida-gum
+	path = subprojects/miru-mumu
 	url = https://github.com/frida/frida-gum.git
 [submodule "frida-core"]
-	path = subprojects/frida-core
+	path = subprojects/miru-core
 	url = https://github.com/frida/frida-core.git
 [submodule "frida-python"]
-	path = subprojects/frida-python
+	path = subprojects/miru-python
 	url = https://github.com/frida/frida-python.git
 [submodule "frida-node"]
-	path = subprojects/frida-node
+	path = subprojects/miru-node
 	url = https://github.com/frida/frida-node.git
 [submodule "frida-swift"]
-	path = subprojects/frida-swift
+	path = subprojects/miru-swift
 	url = https://github.com/frida/frida-swift.git
 [submodule "frida-clr"]
-	path = subprojects/frida-clr
+	path = subprojects/miru-clr
 	url = https://github.com/frida/frida-clr.git
 [submodule "frida-qml"]
-	path = subprojects/frida-qml
+	path = subprojects/miru-qml
 	url = https://github.com/frida/frida-qml.git
 [submodule "frida-tools"]
-	path = subprojects/frida-tools
+	path = subprojects/miru-tools
 	url = https://github.com/frida/frida-tools.git
 [submodule "frida-go"]
-	path = subprojects/frida-go
+	path = subprojects/miru-go
 	url = https://github.com/frida/frida-go
 [submodule "releng"]
 	path = releng

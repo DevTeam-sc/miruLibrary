@@ -73,6 +73,11 @@ jobs:
             echo "version=${ref#v}" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
       - name: Build wheels (miru-core + miru-tools)
         env:
           MIRU_VERSION: ${{ steps.vars.outputs.version }}
@@ -85,10 +90,28 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install -U pip
-          python -m pip install "cibuildwheel==2.19.2"
+          python -m pip install "cibuildwheel==2.19.2" meson ninja
 
+          # 1. Build miru-core wheels (native extensions)
+          # Linux uses docker (manylinux), Windows/macOS use host.
+          echo "::group::Build miru-core wheels"
           python -m cibuildwheel subprojects/miru-python --output-dir dist/wheels
+          echo "::endgroup::"
+
+          # 2. Build miru-tools assets (JS agents/bridges)
+          # This runs on the host runner (ubuntu/windows/macos), so it uses the Node.js we set up.
+          echo "::group::Build miru-tools assets"
+          pushd subprojects/miru-tools
+          meson setup build
+          meson compile -C build
+          popd
+          echo "::endgroup::"
+
+          # 3. Build miru-tools wheel (Pure Python)
+          # Now that assets are in build/, setup.py will pick them up.
+          echo "::group::Build miru-tools wheel"
           python -m pip wheel -w dist/wheels --no-deps subprojects/miru-tools
+          echo "::endgroup::"
 
       - name: Smoke test (install wheels + basic CLI)
         shell: bash
